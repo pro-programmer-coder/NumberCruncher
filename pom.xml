@@ -19,7 +19,7 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>
+        </build>
     <packaging>jar</packaging>
 
     <dependencies>

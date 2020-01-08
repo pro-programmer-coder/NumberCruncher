@@ -1,5 +1,6 @@
 package core;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -83,7 +84,8 @@ class NumberCruncherTest {
     }
 
     @Test()
-    public void empty_array_test() throws EmptyArrayException{
+    public void empty_array_test_with_try_catch() throws EmptyArrayException{
+        //arrange
         int actual;
         int[] input = new int[]{};
         NumberCruncher cut = new NumberCruncher();
@@ -95,7 +97,16 @@ class NumberCruncherTest {
         }catch(EmptyArrayException e){
             assertTrue(true);
         }
+    }
 
+    @Test()
+    public void empty_array_test_with_assertThrow(){
+        //arrange
+        int actual;
+        int[] input = new int[]{};
+        NumberCruncher cut = new NumberCruncher();
+
+        Assertions.assertThrows(EmptyArrayException.class, () -> cut.highestIntArray(input));
     }
 
 }
